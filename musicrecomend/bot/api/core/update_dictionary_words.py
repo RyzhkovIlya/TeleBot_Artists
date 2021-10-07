@@ -25,7 +25,11 @@ def dict_words(name: str):
     else:
         print(False)
 
-# def del_let (name: str):
-#     diction = pickle.load(open("api/database/dictionary_words.pickle", 'rb'))
+#def del_let (name: str):
+#     diction = pickle.load(open("../database/dictionary_words.pickle", 'rb'))
 #     diction.pop(name)
-#     pickle.dump(diction, open("api/database/dictionary_words.pickle", 'wb'))
+#     pickle.dump(diction, open("../database/dictionary_words.pickle", 'wb'))
+
+#del_let('Юлия Кадышева (Yulia Kadysheva)')
+#del_let('Алла Пугачёва (Alla Pugacheva)')
+#del_let('FACE')
