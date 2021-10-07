@@ -15,21 +15,17 @@ def dict_all_words():
 
 
 def dict_words(name: str):
-    if name + '.txt' in os.listdir('bot/api/database/raw_data'):
-        # print(name)
-        with open(f'bot/api/database/raw_data/{name}.txt', encoding='utf-8', newline='') as f:
-            artist_text = f.read()        
-            dictionary_words = pickle.load(open("bot/api/database/dictionary_words.pickle", 'rb'))
+    if name + '.txt' in os.listdir('api/database/raw_data'):
+        with open(f'api/database/raw_data/{name}.txt', encoding='utf-8', newline='') as f:
+            artist_text = f.read()
+            dictionary_words = pickle.load(open("api/database/dictionary_words.pickle", 'rb'))
             dictionary_words[name] = clean_lemm_general(artist_text)
-            pickle.dump(dictionary_words, open("bot/api/database/dictionary_words.pickle", 'wb'))
+            pickle.dump(dictionary_words, open("api/database/dictionary_words.pickle", 'wb'))
             return dictionary_words
     else:
         print(False)
 
 # def del_let (name: str):
-#     diction = pickle.load(open("bot/api/database/dictionary_words.pickle", 'rb'))
+#     diction = pickle.load(open("api/database/dictionary_words.pickle", 'rb'))
 #     diction.pop(name)
-#     pickle.dump(diction, open("bot/api/database/dictionary_words.pickle", 'wb'))
-
-# del_let('The Killers')
-# del_let('Tommy Körberg')
+#     pickle.dump(diction, open("api/database/dictionary_words.pickle", 'wb'))

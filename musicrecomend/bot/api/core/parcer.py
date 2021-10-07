@@ -10,7 +10,7 @@ def get_lyrics(name, k):
         songs = response.songs
         s = [song.lyrics for song in songs]
         name_1 = response.name
-        with open(f"bot/api/database/raw_data/{name_1}.txt", "w", encoding='utf-8') as f:
+        with open(f"api/database/raw_data/{name_1}.txt", "w", encoding='utf-8') as f:
             f.write("\n \n".join(s))
         c += 1
         print(f"Songs grabbed:{len(s)}")
