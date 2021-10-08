@@ -1,7 +1,8 @@
-from dotenv import load_dotenv
-
 from api.loader import API_TOKEN
-def get_lyrics(name, k):
+
+def get_lyrics(name:str, k=20):
+    '''Функция приниамет на вход исполнителя и количество песен, которое неоходимо запарсить (по умолчанию 20)'''
+
     c = 0
     import lyricsgenius as lg
     try:
@@ -17,5 +18,7 @@ def get_lyrics(name, k):
     except:
         print(f"some exception at {name}: {c}")
 
-def pars(name):
+def pars(name: str):
+    '''Функция принимает на вход имя исполнителя и возвращет результат функции get_lyrics.'''
+
     return get_lyrics(name, 20)

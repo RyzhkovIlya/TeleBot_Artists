@@ -3,6 +3,7 @@ import pickle
 from api.core.cleaner import clean_lemm_general
 
 def dict_all_words():
+    '''Функуия создает первичный словарь dictionary_words.'''
     dictionary_words = {}
     for i in os.listdir('api/database/raw_data'):
         try:
@@ -15,6 +16,9 @@ def dict_all_words():
 
 
 def dict_words(name: str):
+    '''Функция принимает на вход иполнителя, проверяет есть ли он в базе данных.
+    Если есть, то записывает в словарь dictionary_words ключ и значние преобразованного текста его песен.'''
+
     if name + '.txt' in os.listdir('api/database/raw_data'):
         with open(f'api/database/raw_data/{name}.txt', encoding='utf-8', newline='') as f:
             artist_text = f.read()
@@ -26,10 +30,8 @@ def dict_words(name: str):
         print(False)
 
 def del_let (name: str):
-     diction = pickle.load(open("../database/dictionary_words.pickle", 'rb'))
-     diction.pop(name)
-     pickle.dump(diction, open("../database/dictionary_words.pickle", 'wb'))
+    '''Функция принимает на вход имя исполнителя и удаляет указанный ключ в словаре dictionary_words.'''
 
-#del_let('Юлия Кадышева (Yulia Kadysheva)')
-#del_let('Алла Пугачёва (Alla Pugacheva)')
-#del_let('FACE')
+    diction = pickle.load(open("../database/dictionary_words.pickle", 'rb'))
+    diction.pop(name)
+    pickle.dump(diction, open("../database/dictionary_words.pickle", 'wb'))

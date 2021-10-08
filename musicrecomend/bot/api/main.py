@@ -19,9 +19,8 @@ if tfidf_not_exists:
     artists_similarity = tfidf(pickle.load(open("api/database/dictionary_words.pickle", 'rb')))
     pd.DataFrame(artists_similarity, index=dictionary_words.keys()).to_csv('api/database/TF_IDF.csv')
 def recommender(name: str):
-    """
-    pass
-    """
+    '''Функция принимает на вход имя исполнителя и возвращает Топ-10 рекомендованных исполнтелей.'''
+
     name = input_checker(name)
     name = name_checker(name)
 

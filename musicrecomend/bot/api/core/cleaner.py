@@ -2,15 +2,15 @@ import nltk
 import re
 from nltk.stem import WordNetLemmatizer
 
-nltk.data.path.append('nltk_data')
-
-def clean_lemm_general(text_general):
+def clean_lemm_general(text_general:str):
+    '''Функция принимает на вход текст песен исполнителя и возвращает преобразованный текст его песен.'''
 
     nltk.download('wordnet', 'nltk_data')
     nltk.data.path.append('nltk_data')
     
-    def clean(text):
-
+    def clean(text:str):
+        '''Функция принимает на вход текст песен исполнителей и возвращает очищенный от лишних слов текст песен исполнителя.'''
+        
         text_clean_pre = text.lower()  # приводим все символы к нижнему регистру
         text_clean_pre = re.sub(r'\d+', '', text_clean_pre)  # удаляем все числа
         text_clean_pre = re.sub(r'[^\w\s]','', text_clean_pre)  # удаляем все знаки препинания
@@ -18,6 +18,7 @@ def clean_lemm_general(text_general):
         text_clean_pre = re.sub(r'@\w+', '', text_clean_pre)
         text_clean_pre = re.sub(r'#\w+', '', text_clean_pre)
         return text_clean_pre
+
     text_clean_gen = [clean(i) for i in text_general.split()]
     text_lem = WordNetLemmatizer()
     lem_text = []
