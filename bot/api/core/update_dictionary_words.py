@@ -29,6 +29,8 @@ def dict_words(name: str):
             outfile = open("bot/api/database/dictionary_words.pickle", 'wb')
             pickle.dump(dictionary_words, outfile)
             outfile.close()
+            infin = open("bot/api/database/dictionary_words.pickle", 'rb')
+            dictionary_words = pickle.load(infin)
 
             return dictionary_words
     else:

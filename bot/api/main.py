@@ -3,6 +3,7 @@ from api.core.update_artist_names import upd_artist_name
 from api.core.recommendation import recommendation
 from api.core.parcer import pars
 from api.core.update_dictionary_words import dict_words, dict_all_words
+
 import pickle
 from api.core.tf_idf import tfidf
 import pandas as pd
