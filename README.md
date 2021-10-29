@@ -16,4 +16,4 @@ https://t.me/ArtistRecomendBot
 
 ## Способ проверки работоспособности бота
 1. Запустить файл bot/_bot.py .
-2. В Телеграме открыть бота [@PolundraHack](https://t.me/ArtistRecomendBot) и отправить ему запрос.
+2. В Телеграме открыть бота [@ArtistRecomendBot](https://t.me/ArtistRecomendBot) и отправить ему запрос.
