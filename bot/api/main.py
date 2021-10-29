@@ -12,12 +12,13 @@ import logging
 
 logging.basicConfig(filename='log.log',level=logging.INFO) 
 
-tfidf_not_exists = 'TF_IDF.csv' not in os.listdir('api/database/')
+tfidf_not_exists = 'TF_IDF.csv' not in os.listdir('bot/api/database/')
 if tfidf_not_exists:
     dictionary_words = dict_all_words()
-    pickle.dump(dictionary_words, open("api/database/dictionary_words.pickle", "wb"))
-    artists_similarity = tfidf(pickle.load(open("api/database/dictionary_words.pickle", 'rb')))
-    pd.DataFrame(artists_similarity, index=dictionary_words.keys()).to_csv('api/database/TF_IDF.csv')
+    pickle.dump(dictionary_words, open("bot/api/database/dictionary_words.pickle", "wb"))
+    artists_similarity = tfidf(pickle.load(open("bot/api/database/dictionary_words.pickle", 'rb')))
+    pd.DataFrame(artists_similarity, index=dictionary_words.keys()).to_csv('bot/api/database/TF_IDF.csv')
+
 def recommender(name: str):
     '''Функция принимает на вход имя исполнителя и возвращает Топ-10 рекомендованных исполнтелей.'''
     

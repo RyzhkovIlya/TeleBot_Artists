@@ -18,10 +18,9 @@ def clean_lemm_general(text_general:str):
         text_clean_pre = re.sub(r'@\w+', '', text_clean_pre)
         text_clean_pre = re.sub(r'#\w+', '', text_clean_pre)
         return text_clean_pre
-
     text_clean_gen = [clean(i) for i in text_general.split()]
     text_lem = WordNetLemmatizer()
     lem_text = []
     for words in text_clean_gen:
         lem_text.append(' '.join([text_lem.lemmatize(word) for word in words.split()]))
-    return ' '.join(lem_text)
+    return (' '.join(lem_text))

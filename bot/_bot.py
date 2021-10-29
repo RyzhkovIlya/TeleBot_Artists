@@ -53,13 +53,13 @@ async def echo_message(message: types.Message):
         name = input_checker(txt)
         name = name_checker(name)
 
-        df = pd.read_csv('api/database/artist_names.csv', sep='\t')
+        df = pd.read_csv('bot/api/database/artist_names.csv', sep='\t')
 
         if name in df['authors'].to_list():
             recommend = recommendation(name)
             await bot.send_message(user_id, recommend)
         else:
             await bot.send_sticker(user_id, STICKER)
-            await bot.send_message(user_id, recommender(txt))
+            await bot.send_message(user_id, recommender(name))
 if __name__ == '__main__':
     executor.start_polling(dp)
