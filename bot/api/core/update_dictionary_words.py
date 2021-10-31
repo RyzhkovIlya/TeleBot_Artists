@@ -23,14 +23,14 @@ def dict_words(name: str):
     if name + '.txt' in os.listdir('bot/api/database/raw_data'):
         with open(f'bot/api/database/raw_data/{name}.txt', encoding='utf-8', newline='') as f:
             artist_text = f.read()
-            infin = open("bot/api/database/dictionary_words.pickle", 'rb')
-            dictionary_words = pickle.load(infin)
-            dictionary_words[name] = clean_lemm_general(artist_text)
-            outfile = open("bot/api/database/dictionary_words.pickle", 'wb')
-            pickle.dump(dictionary_words, outfile)
-            outfile.close()
-            infin = open("bot/api/database/dictionary_words.pickle", 'rb')
-            dictionary_words = pickle.load(infin)
+            with open("bot/api/database/dictionary_words.pickle", 'rb') as v: 
+                    dictionary_words = pickle.load(v)
+                    dictionary_words[name] = clean_lemm_general(artist_text)
+                    outfile = open("bot/api/database/dictionary_words.pickle", 'wb')
+                    pickle.dump(dictionary_words, outfile)
+                    outfile.close()
+            # infin = open("bot/api/database/dictionary_words.pickle", 'rb')
+            # dictionary_words = pickle.load(infin)
 
             return dictionary_words
     else:
