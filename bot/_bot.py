@@ -12,7 +12,7 @@ from api.static import START, INFO
 from api.checkers.name_checker import name_checker
 from api.checkers.input_checker import input_checker
 from api.core.recommendation import recommendation
-from api.static import STICKER
+from api.static import STICKER, NOT_FIND
 
 # Логирование
 logging.basicConfig(filename='log.log',
@@ -60,6 +60,10 @@ async def echo_message(message: types.Message):
             await bot.send_message(user_id, recommend)
         else:
             await bot.send_sticker(user_id, STICKER)
-            await bot.send_message(user_id, recommender(name))
+            if recommender(name) != False:
+                await bot.send_message(user_id, recommender(name))
+            else:
+                await bot.send_message(user_id, NOT_FIND)
+
 if __name__ == '__main__':
     executor.start_polling(dp)
