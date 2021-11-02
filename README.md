@@ -1,5 +1,8 @@
 # TeleBot_Artist
-https://t.me/ArtistRecomendBot
+Запустить сервис можно по ссылке https://t.me/ArtistRecomendBot или отсканировав QR-код
+
+<a href="http://qrcoder.ru" target="_blank"><img src="http://qrcoder.ru/code/?https%3A%2F%2Ft.me%2FArtistRecomendBot&6&0" width="222" height="222" border="0" title="QR код"></a>
+
 ## Задание
 Создать сервис по рекомендации исполителей песен на основе текстов песен. На вход подается исполнитель. Выход представляет собой список из 10 исполнителей похожих по синтансу слов в своих песнях.
 Система рекомендации построена на методе TF/IDF меры.

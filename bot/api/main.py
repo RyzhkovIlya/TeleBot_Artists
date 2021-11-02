@@ -20,8 +20,13 @@ if tfidf_not_exists:
 def recommender(name: str):
     '''Функция принимает на вход имя исполнителя и возвращает Топ-10 рекомендованных исполнтелей.'''
     
+<<<<<<< HEAD
     len_pars = pars(name)
     if len_pars > 0:
+=======
+    len_parc = pars(name)
+    if len_parc > 0:
+>>>>>>> e94261fcbf5f7b0da9d6fca91881b01398d266ac
         dictionary_words = dict_words(name)
         logging.info('dict_words_created')
         with open("bot/api/database/dictionary_words.pickle", "wb") as f:
@@ -35,4 +40,8 @@ def recommender(name: str):
         upd_artist_name(name)
         return reccomend
     else:
+<<<<<<< HEAD
         return 'False'
+=======
+        return False
+>>>>>>> e94261fcbf5f7b0da9d6fca91881b01398d266ac
