@@ -20,10 +20,11 @@ def dict_all_words():
 def dict_words(name: str):
     '''Функция принимает на вход иполнителя, проверяет есть ли он в базе данных.
     Если есть, то записывает в словарь dictionary_words ключ и значние преобразованного текста его песен.'''
+
     if name + '.txt' in os.listdir('bot/api/database/raw_data'):
         with open(f'bot/api/database/raw_data/{name}.txt', encoding='utf-8', newline='') as f:
             artist_text = f.read()
-            with open("bot/api/database/dictionary_words.pickle", 'rb') as v: 
+            with open("bot/api/database/dictionary_words.pickle", 'rb') as v:
                     dictionary_words = pickle.load(v)
                     dictionary_words[name] = clean_lemm_general(artist_text)
                     outfile = open("bot/api/database/dictionary_words.pickle", 'wb')

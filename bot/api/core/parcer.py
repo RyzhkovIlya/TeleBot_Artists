@@ -18,6 +18,7 @@ def get_lyrics(name:str, k=20):
         return len(s)
     except:
         print(f"some exception at {name}: {c}")
+        return c
 
 def pars(name: str):
     '''Функция принимает на вход имя исполнителя и возвращет результат функции get_lyrics.'''

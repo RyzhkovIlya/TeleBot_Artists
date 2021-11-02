@@ -1,0 +1,27 @@
+INFO:aiogram:Bot: Atrist_Similarity [@ArtistRecomendBot]
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:root:Нам написал Илья Рыжков, его id = 786941244
+INFO:root:dict_words_created
+INFO:root:dict_words_dump
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<Dispatcher._process_polling_updates() done, defined at /home/ubuntu/.local/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py:406> exception=AttributeError("'NoneType' object has no attribute 'values'")>
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py", line 414, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/aiogram/dispatcher/handler.py", line 116, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/aiogram/dispatcher/handler.py", line 116, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "bot/_bot.py", line 63, in echo_message
+    await bot.send_message(user_id, recommender(name))
+  File "/home/ubuntu/TeleBot_Artists/bot/api/main.py", line 29, in recommender
+    artists_similarity = tfidf(pickle.load(open("bot/api/database/dictionary_words.pickle", 'rb')))
+  File "/home/ubuntu/TeleBot_Artists/bot/api/core/tf_idf.py", line 8, in tfidf
+    tfidf_representation =cd tfidf.fit_transform(diction.values())
+AttributeError: 'NoneType' object has no attribute 'values'
+INFO:aiogram.dispatcher.dispatcher:Stop polling...
+WARNING:aiogram:Goodbye!
