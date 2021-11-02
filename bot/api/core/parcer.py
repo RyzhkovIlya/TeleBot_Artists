@@ -1,10 +1,10 @@
 from api.loader import API_TOKEN
+import lyricsgenius as lg
 
 def get_lyrics(name:str, k=20):
     '''Функция приниамет на вход исполнителя и количество песен, которое неоходимо запарсить (по умолчанию 20)'''
 
     c = 0
-    import lyricsgenius as lg
     try:
         genius = lg.Genius(API_TOKEN,skip_non_songs=True, excluded_terms=["(Remix)", "(Live)"], remove_section_headers=True, retries=2)
         response = genius.search_artist(name, max_songs=k, sort='popularity')

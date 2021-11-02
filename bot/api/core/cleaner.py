@@ -1,12 +1,15 @@
 import nltk
 import re
 from nltk.stem import WordNetLemmatizer
+import nltk
+from nltk.corpus import stopwords # стопслова
 
 def clean_lemm_general(text_general:str):
     '''Функция принимает на вход текст песен исполнителя и возвращает преобразованный текст его песен.'''
 
     nltk.download('wordnet', 'nltk_data')
     nltk.data.path.append('nltk_data')
+    nltk.download('stopwords')
     
     def clean(text:str):
         '''Функция принимает на вход текст песен исполнителей и возвращает очищенный от лишних слов текст песен исполнителя.'''
@@ -20,7 +23,9 @@ def clean_lemm_general(text_general:str):
         return text_clean_pre
     text_clean_gen = [clean(i) for i in text_general.split()]
     text_lem = WordNetLemmatizer()
+    sw_rus = stopwords.words('russian') # список стоп-слов 
+    sw_eng = stopwords.words('english')
     lem_text = []
     for words in text_clean_gen:
-        lem_text.append(' '.join([text_lem.lemmatize(word) for word in words.split()]))
+        lem_text.append(' '.join([text_lem.lemmatize(word) for word in words.split() if word not in sw_rus and word not in sw_eng]))
     return (' '.join(lem_text))
