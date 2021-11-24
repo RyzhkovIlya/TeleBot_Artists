@@ -59,8 +59,9 @@ async def echo_message(message: types.Message):
             await bot.send_message(user_id, recommend)
         else:
             await bot.send_sticker(user_id, STICKER)
-            if recommender(name) != 'False':
-                await bot.send_message(user_id, recommender(name))
+            output = recommender(name)
+            if output != 'no_find':
+                await bot.send_message(user_id, output)
             else:
                 await bot.send_message(user_id, NOT_FIND)
 
