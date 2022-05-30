@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "tele_bot.py", line 9, in <module>
-    from api.main import recommender
-  File "/home/ubuntu/TeleBot_Artists/bot/api/main.py", line 13, in <module>
-    tfidf_not_exists = 'TF_IDF.csv' not in os.listdir('bot/api/database/')
-FileNotFoundError: [Errno 2] No such file or directory: 'bot/api/database/'
