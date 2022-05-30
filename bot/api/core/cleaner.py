@@ -3,13 +3,12 @@ import re
 from nltk.stem import WordNetLemmatizer
 import nltk
 from nltk.corpus import stopwords # стопслова
+nltk.download('wordnet', 'nltk_data')
+nltk.data.path.append('nltk_data')
+nltk.download('stopwords')
 
 def clean_lemm_general(text_general:str):
     '''Функция принимает на вход текст песен исполнителя и возвращает преобразованный текст его песен.'''
-
-    nltk.download('wordnet', 'nltk_data')
-    nltk.data.path.append('nltk_data')
-    nltk.download('stopwords')
     
     def clean(text:str):
         '''Функция принимает на вход текст песен исполнителей и возвращает очищенный от лишних слов текст песен исполнителя.'''

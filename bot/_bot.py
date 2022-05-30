@@ -52,16 +52,15 @@ async def echo_message(message: types.Message):
 
         name = input_checker(txt)
         name = name_checker(name)
-
         df = pd.read_csv('bot/api/database/artist_names.csv', sep='\t')
 
         if name in df['authors'].to_list():
-            recommend = recommendation(name)
-            await bot.send_message(user_id, recommend)
+            await bot.send_message(user_id, recommendation(name))
         else:
             await bot.send_sticker(user_id, STICKER)
-            if recommender(name) != 'False':
-                await bot.send_message(user_id, recommender(name))
+            rec_artists = recommender(name)
+            if rec_artists != "False":
+                await bot.send_message(user_id, rec_artists)
             else:
                 await bot.send_message(user_id, NOT_FIND)
 
